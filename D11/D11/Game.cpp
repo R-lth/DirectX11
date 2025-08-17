@@ -167,6 +167,25 @@ void Game::CreateGeometry()
 		_device->CreateBuffer(&desc, &data, _vertexBuffer.GetAddressOf());
 	}
 }
+
+void Game::CreateInputLayout()
+{
+	// CreateGeometry()로 만든 기하 데이터를 어떻게 끊어서 읽을 것인지
+	// Direct3D 11에서 정점(Vertex) 데이터가 어떤 구조로 되어 있는지를 GPU(파이프라인)에 알려주는 역할
+	
+	D3D11_INPUT_ELEMENT_DESC layout[] =
+	{
+		// POSITION : float3 (x, y, z) → 3 * 4바이트 = 12바이트
+		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT,    0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
+		/* COLOR    : POSITION이 12바이트 차지하므로 COLOR는 그 뒤(오프셋 12)에서 시작*/
+		{"COLOR",    0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0}
+	};
+
+	const int32 count = sizeof(layout) / sizeof(D3D11_INPUT_ELEMENT_DESC);
+	_device->CreateInputLayout(layout, count, 
+		_vsBlob->GetBufferPointer(), _vsBlob->GetBufferSize(), _inputLayout.GetAddressOf());
+}
+
 void Game::CreateVS()
 {
 	// Default.hlsl을 _vsBlob이라는 형태로 갖게 됨.
