@@ -39,6 +39,15 @@
     <ClInclude Include="pch.h">
       <Filter>소스 파일\99. Headers</Filter>
     </ClInclude>
+    <ClInclude Include="values.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="D11.rc">
