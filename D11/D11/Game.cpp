@@ -15,8 +15,10 @@ void Game::Init(HWND hwnd)
 	_width  = GWindSizeX;
 	_height = GWindSizeY;
 
-	// TODO.
-	CreateDeviceAndSwapChain();
+	// 후면 버퍼를 만들고 → 그 버퍼를 그림 대상(View)으로 지정하고 → 화면 크기에 맞게 뷰포트를 설정한다
+	CreateDeviceAndSwapChain(); // 버퍼 준비
+	CreateRenderTargetView();   // 그림 대상 지정
+	SetViewport();				// 화면에 맞는 그리기 영역 설정
 }
 
 void Game::Update()
