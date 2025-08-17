@@ -36,10 +36,26 @@ void Game::Render()
 {
 	RenderBegin();
 
-	// TODO. 렌더링 파이프라인
-	// IA → VS → RS → PS → OM
+	//렌더링 파이프라인
 	{
+		uint32 stride = sizeof(Vertex);
+		uint32 offset = 0;
 
+		// IA = 셋팅
+		_deviceContext->IASetVertexBuffers(0, 1, _vertexBuffer.GetAddressOf(), &stride, &offset); // 정점 버퍼 바인딩(연결)
+		_deviceContext->IASetInputLayout(_inputLayout.Get());									  // 정점 해석. inputLayout
+		_deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);			  // 도형 구성 방식. 삼각형
+
+		// VS = 코딩. GPU한테 일감 전달
+		_deviceContext->VSSetShader(_vertexShader.Get(), nullptr, 0);
+
+		// RS = 자동
+
+		// PS = 색상
+		_deviceContext->PSSetShader(_pixelShader.Get(), nullptr, 0);
+
+		// OM = 그림
+		_deviceContext->Draw(_vertices.size(), 0);
 	}
 
 	RenderEnd();
