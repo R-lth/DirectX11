@@ -54,6 +54,6 @@ private:
 
 	// Misc
 	D3D11_VIEWPORT _viewport = {0};					   // 화면 위치·크기를 묘사하는 구조체
-	float _clearColor[4] = { 0.7f, 1.0f, 0.7f, 1.0f }; // 밝고 연한 연두색
+	float _clearColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f }; // 흰 색
 };
 
