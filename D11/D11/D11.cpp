@@ -3,11 +3,13 @@
 #include "pch.h"
 #include "framework.h"
 #include "D11.h"
+#include "Game.h"
 
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
+HWND hWnd;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -19,24 +21,37 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
+    // 1. 윈도우 창 정보 등록
     MyRegisterClass(hInstance);
 
-    // 애플리케이션 초기화를 수행합니다:
+    // 2. 윈도우 창 생성. 애플리케이션 초기화를 수행합니다:
     if (!InitInstance (hInstance, nCmdShow))
     {
         return FALSE;
     }
 
+    Game game;
+    // 1) 초기화
+    game.Init(hWnd);
 
-    MSG msg;
+    MSG msg = {};
 
     // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    //while (GetMessage(&msg, nullptr, 0, 0))
+    while (msg.message != WM_QUIT)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        //if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
+        }
+        // 게임 프레임워크 실행
+        else 
+        {
+            // 2) 매 프레임마다
+            game.Update();
+            game.Render();
         }
     }
 
@@ -89,7 +104,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     ::AdjustWindowRect(&windowRect, WS_OVERLAPPEDWINDOW, false);
 
     // 창 생성
-    hWnd = CreateWindowW(L"Dx11 Practice", L"Client", WS_OVERLAPPEDWINDOW,
+    hWnd = CreateWindowW(L"Dx11 Practice", L"Kohmeso, DXClient", WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, 0, windowRect.right - windowRect.left,windowRect.bottom - windowRect.top, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)

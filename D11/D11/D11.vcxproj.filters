@@ -48,6 +48,9 @@
     <ClInclude Include="Types.h">
       <Filter>소스 파일\99. Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>소스 파일\01. Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="D11.rc">
@@ -68,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>소스 파일\01. Main</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
