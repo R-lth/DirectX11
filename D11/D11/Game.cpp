@@ -127,3 +127,43 @@ void Game::SetViewport()
 	_viewport.MinDepth = 0.f;
 	_viewport.MaxDepth = 1.f;
 }
+
+void Game::CreateGeometry()
+{
+	// VertexData
+	// 
+	{
+		_vertices.resize(3);
+
+		// 반 시계 방향 (후면 버퍼)
+		_vertices[0].position = Vec3(-0.5f, -0.5f, 0.f); // 왼쪽 아래
+		_vertices[0].color = Color(1.0f, 0.f, 0.f, 1.f);
+
+		_vertices[1].position = Vec3(0.f, 0.5f, 0.f);    // 위쪽 중앙
+		_vertices[1].color = Color(0.0f, 1.f, 0.f, 1.f);
+
+		_vertices[2].position = Vec3(0.5f, -0.5f, 0.f);  // 오른쪽 아래
+		_vertices[2].color = Color(0.0f, 0.f, 1.f, 1.f);
+	}
+
+	// CPU 메모리를 GPU에게 넘김
+	// [CPU ↔ RAM] [GPU ↔ RAM]
+
+	// VertexBuffer
+	{
+		// 버퍼 묘사
+		D3D11_BUFFER_DESC desc;
+		ZeroMemory(&desc, sizeof(desc));
+		desc.Usage = D3D11_USAGE_IMMUTABLE;		   // ★ Cpu 접근 불가. Gpu만 읽을 수 있음.
+		desc.BindFlags = D3D11_BIND_VERTEX_BUFFER; // 정점 버퍼 용으로 지정
+		desc.ByteWidth = static_cast<uint32>(sizeof(Vertex) * _vertices.size());
+
+		//
+		D3D11_SUBRESOURCE_DATA data;
+		ZeroMemory(&data, sizeof(data));
+		data.pSysMem = &_vertices[0]; // 시작 주소 반환
+
+		// 정점 버퍼 생성
+		_device->CreateBuffer(&desc, &data, _vertexBuffer.GetAddressOf());
+	}
+}

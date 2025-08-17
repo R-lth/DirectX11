@@ -20,6 +20,11 @@ private:
 	void CreateRenderTargetView();
 	void SetViewport();
 
+#pragma region 삼각형
+private:
+	void CreateGeometry();
+#pragma endregion
+
 private:
 	// 윈도우 핸들(포인터). 어떤 윈도우(창)를 가리키는 식별자 같은 역할 
 	HWND _hwnd;
@@ -55,5 +60,10 @@ private:
 	// Misc
 	D3D11_VIEWPORT _viewport = {0};					   // 화면 위치·크기를 묘사하는 구조체
 	float _clearColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f }; // 흰 색
+
+private:
+	// Geometry
+	vector<Vertex> _vertices;
+	ComPtr<ID3D11Buffer> _vertexBuffer = nullptr;
 };
 
