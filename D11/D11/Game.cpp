@@ -14,8 +14,8 @@ void Game::Init(HWND hwnd)
 	// 화면 그리기 환경을 초기화 → 기하 데이터 준비 → 셰이더 준비
 
 	_hwnd   = hwnd;
-	_width  = GWindSizeX;
-	_height = GWindSizeY;
+	_width  = GWinSizeX;
+	_height = GWinSizeY;
 
 	// 후면 버퍼를 만들고 → 그 버퍼를 그림 대상(View)으로 지정하고 → 화면 크기에 맞게 뷰포트를 설정한다
 	CreateDeviceAndSwapChain(); // 버퍼 준비

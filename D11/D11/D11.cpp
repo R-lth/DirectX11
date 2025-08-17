@@ -100,7 +100,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
     // 창 크기 설정
-    RECT windowRect = { 0, 0, GWindSizeX, GWindSizeY }; // 800, 600
+    RECT windowRect = { 0, 0, GWinSizeX, GWinSizeY }; // 800, 600
     ::AdjustWindowRect(&windowRect, WS_OVERLAPPEDWINDOW, false);
 
     // 창 생성
