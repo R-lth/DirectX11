@@ -11,6 +11,8 @@ Game::~Game()
 
 void Game::Init(HWND hwnd)
 {
+	// 화면 그리기 환경을 초기화 → 기하 데이터 준비 → 셰이더 준비
+
 	_hwnd   = hwnd;
 	_width  = GWindSizeX;
 	_height = GWindSizeY;
@@ -19,6 +21,11 @@ void Game::Init(HWND hwnd)
 	CreateDeviceAndSwapChain(); // 버퍼 준비
 	CreateRenderTargetView();   // 그림 대상 지정
 	SetViewport();				// 화면에 맞는 그리기 영역 설정
+
+	// 기하 데이터 준비 → 셰이더 준비
+	CreateGeometry();			// 정점(Geometry) 데이터를 준비하고, 이를 GPU용 버퍼로 전환
+	CreateVS();					// 정점 셰이더(Vertex Shader) 로드 및 생성
+	CreatePS();					// 픽셀 셰이더(Pixel Shader) 로드 및 생성
 }
 
 void Game::Update()
