@@ -12,7 +12,12 @@ public:
 	void Render();
 
 private:
-	void CreateDeviceAndSwapChain();
+	void RenderBegin();
+	void RenderEnd();
+
+private:
+	void CreateDeviceAndSwapChain(); 
+	void CreateRenderTargetView();
 
 private:
 	// 윈도우 핸들(포인터). 어떤 윈도우(창)를 가리키는 식별자 같은 역할 

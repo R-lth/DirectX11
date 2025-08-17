@@ -27,8 +27,18 @@ void Game::Render()
 {
 }
 
+void Game::RenderBegin()
+{
+}
+
+void Game::RenderEnd()
+{
+}
+
 void Game::CreateDeviceAndSwapChain()
 {
+	// 후면 버퍼를 생성해서 교체(스왑)할 수 있도록 초기화하는 과정
+	// 
 	//1. 스왑 체인(구조체 메모리) 초기화
 	DXGI_SWAP_CHAIN_DESC desc;  
 	ZeroMemory(&desc, sizeof(desc)); // 0으로 초기화. 단, 필요한 부분만 추가 설정. ≒ memset
@@ -67,5 +77,23 @@ void Game::CreateDeviceAndSwapChain()
 
 	// 3. 초기화 여부. 실패 시 크러쉬
 	//assert(SUCCEEDED(hr));
+	CHECK(hr);
+}
+
+void Game::CreateRenderTargetView()
+{
+	// Render Target View(RTV) 생성. 이는 "GPU야, 이 후면 버퍼에 그림을 그려라" 하고 알려주는 역할
+	// 
+	// 스왑체인에서 후면 버퍼를 꺼내와, 그 버퍼를 GPU가 실제로 그림을 그릴 대상(View)인 RTV로 연결
+
+	HRESULT hr;
+
+	// 1) 스왑체인에서 후면 버퍼(그림을 그릴 실제 화면 메모리) 꺼내오기
+	ComPtr<ID3D11Texture2D> backBuffer = nullptr;
+	hr = _swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)backBuffer.GetAddressOf());
+	CHECK(hr);
+
+	// 2) 꺼낸 후면 버퍼를 "그릴 수 있는 대상(Render Target)"으로 묘사하는 뷰 생성
+	_device->CreateRenderTargetView(backBuffer.Get(), nullptr, _renderTargetView.GetAddressOf());
 	CHECK(hr);
 }
