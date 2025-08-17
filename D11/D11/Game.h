@@ -25,6 +25,9 @@ private:
 #pragma region 삼각형
 private:
 	void CreateGeometry();
+	// 셰이더
+	void CreateVS();
+	void CreatePS();
 	// 셰이더 로드 및 저장
 	void LoadShaderFromFile(const wstring& path, const string& name, const string& version, 
 								ComPtr<ID3D10Blob>& blob);

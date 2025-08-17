@@ -167,6 +167,26 @@ void Game::CreateGeometry()
 		_device->CreateBuffer(&desc, &data, _vertexBuffer.GetAddressOf());
 	}
 }
+void Game::CreateVS()
+{
+	// Default.hlsl을 _vsBlob이라는 형태로 갖게 됨.
+	LoadShaderFromFile(L"Default.hlsl", "VS"/*메인 함수*/, "vs_5_0", _vsBlob);
+
+	// _vsBlob 정보로 _vertexShader 생성
+	HRESULT hr = _device->CreateVertexShader(
+		_vsBlob->GetBufferPointer(), _vsBlob->GetBufferSize(), nullptr, _vertexShader.GetAddressOf());
+
+	//
+	CHECK(hr);
+}
+
+void Game::CreatePS()
+{
+	LoadShaderFromFile(L"Default.hlsl", "PS", "ps_5_0", _psBlob);
+	HRESULT hr = _device->CreatePixelShader(_psBlob->GetBufferPointer(), _psBlob->GetBufferSize(), nullptr, _pixelShader.GetAddressOf());
+	CHECK(hr);
+}
+
 void Game::LoadShaderFromFile(const wstring& path, const string& name, const string& version, ComPtr<ID3D10Blob>& blob)
 {
 	const uint32 compileFlag = D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION; // 디버그 모드이며, 최적화 건너띔.
