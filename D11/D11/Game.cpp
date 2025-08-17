@@ -27,14 +27,32 @@ void Game::Update()
 
 void Game::Render()
 {
+	RenderBegin();
+
+	// TODO. 렌더링 파이프라인
+	// IA → VS → RS → PS → OM
+	{
+
+	}
+
+	RenderEnd();
 }
 
 void Game::RenderBegin()
 {
+	// 후면 버퍼를 RTV에 그리라고 요청
+	_deviceContext->OMSetRenderTargets(1, _renderTargetView.GetAddressOf(), nullptr);
+	// 윈도우 창 배경색 초기화
+	_deviceContext->ClearRenderTargetView(_renderTargetView.Get(), _clearColor);
+	// 화면 정보 기입
+	_deviceContext->RSSetViewports(1, &_viewport);
 }
 
 void Game::RenderEnd()
 {
+	// 다 그린 것을 제출
+	HRESULT hr = _swapChain->Present(1, 0);
+	CHECK(hr);
 }
 
 void Game::CreateDeviceAndSwapChain()
