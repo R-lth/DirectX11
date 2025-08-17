@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include <string>
+
 class Game
 {
 public:
@@ -23,6 +25,9 @@ private:
 #pragma region 삼각형
 private:
 	void CreateGeometry();
+	// 셰이더 로드 및 저장
+	void LoadShaderFromFile(const wstring& path, const string& name, const string& version, 
+								ComPtr<ID3D10Blob>& blob);
 #pragma endregion
 
 private:
@@ -65,5 +70,13 @@ private:
 	// Geometry
 	vector<Vertex> _vertices;
 	ComPtr<ID3D11Buffer> _vertexBuffer = nullptr;
+
+	// VS
+	ComPtr<ID3D11VertexShader> _vertexShader = nullptr;
+	ComPtr<ID3DBlob> _vsBlob = nullptr;
+
+	// PS
+	ComPtr<ID3D11PixelShader> _pixelShader = nullptr;
+	ComPtr<ID3DBlob> _psBlob = nullptr;
 };
 

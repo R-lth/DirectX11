@@ -167,3 +167,20 @@ void Game::CreateGeometry()
 		_device->CreateBuffer(&desc, &data, _vertexBuffer.GetAddressOf());
 	}
 }
+void Game::LoadShaderFromFile(const wstring& path, const string& name, const string& version, ComPtr<ID3D10Blob>& blob)
+{
+	const uint32 compileFlag = D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION; // 디버그 모드이며, 최적화 건너띔.
+
+	HRESULT hr = ::D3DCompileFromFile(
+		path.c_str(),
+		nullptr,
+		D3D_COMPILE_STANDARD_FILE_INCLUDE,
+		name.c_str(),
+		version.c_str(),
+		compileFlag,
+		0,
+		blob.GetAddressOf(),
+		nullptr);
+
+	CHECK(hr);
+}
