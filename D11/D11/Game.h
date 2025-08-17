@@ -50,5 +50,8 @@ private:
 
 	// RTV
 	ComPtr<ID3D11RenderTargetView> _renderTargetView; // 후면 버퍼를 묘사하는 객체
+
+	// Misc
+	D3D11_VIEWPORT _viewport = {0};				 // 화면 위치·크기를 묘사하는 구조체
 };
 
