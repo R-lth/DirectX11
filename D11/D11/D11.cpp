@@ -43,8 +43,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     return (int) msg.wParam;
 }
 
-
-
+#pragma region Win32 Window 
 //
 //  함수: MyRegisterClass()
 //
@@ -64,8 +63,8 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_D11));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_D11);
-    wcex.lpszClassName  = szWindowClass;
+    wcex.lpszMenuName   = NULL;
+    wcex.lpszClassName  = L"Dx11 Practice";
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
     return RegisterClassExW(&wcex);
@@ -85,16 +84,22 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+    // 창 크기 설정
+    RECT windowRect = { 0, 0, GWindSizeX, GWindSizeY }; // 800, 600
+    ::AdjustWindowRect(&windowRect, WS_OVERLAPPEDWINDOW, false);
+
+    // 창 생성
+    hWnd = CreateWindowW(L"Dx11 Practice", L"Client", WS_OVERLAPPEDWINDOW,
+        CW_USEDEFAULT, 0, windowRect.right - windowRect.left,windowRect.bottom - windowRect.top, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
    {
       return FALSE;
    }
 
-   ShowWindow(hWnd, nCmdShow);
-   UpdateWindow(hWnd);
+    // 표준으로 제공하는 winAPI임을 기록
+    ::ShowWindow(hWnd, nCmdShow);
+    ::UpdateWindow(hWnd);
 
    return TRUE;
 }
@@ -119,9 +124,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             // 메뉴 선택을 구문 분석합니다:
             switch (wmId)
             {
-            case IDM_ABOUT:
+                /*case IDM_ABOUT:
                 DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-                break;
+                break;*/
             case IDM_EXIT:
                 DestroyWindow(hWnd);
                 break;
@@ -146,23 +151,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
     return 0;
 }
+#pragma endregion
 
-// 정보 대화 상자의 메시지 처리기입니다.
-INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
-{
-    UNREFERENCED_PARAMETER(lParam);
-    switch (message)
-    {
-    case WM_INITDIALOG:
-        return (INT_PTR)TRUE;
 
-    case WM_COMMAND:
-        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
-        {
-            EndDialog(hDlg, LOWORD(wParam));
-            return (INT_PTR)TRUE;
-        }
-        break;
-    }
-    return (INT_PTR)FALSE;
-}
+
