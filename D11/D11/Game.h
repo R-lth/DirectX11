@@ -20,5 +20,23 @@ private:
 
 private:
 	// DX
+	ComPtr<ID3D11Device*> _device; // GPU에 리소스를 생성하는 객체.
+	ComPtr<ID3D11DeviceContext*> _deviceContext; // 렌더링 파이프라인에 이미 만들어진 리소스를 연결하고 그리기 명령을 내리는 객체.
+	/* 메모리 관리 방법
+	* 1. new와 delete로 관리하는 것이 아님
+	* 2. 수동 관리
+	* 2-1. _device->AddRef();
+	* 2-2. _device->Release();
+	* 3. 자동 관리로, 가장 안전
+	* 3-1. ComPtr<>
+	*/
+
+	ComPtr<IDXGISwapChain> _swapChain = nullptr; // 화면 출력용 객체. GPU가 그린 결과물을 화면에 보여주기 위한 객체.
+	/* 렌더링된 프레임을 디스플레이에 표시하는 데 사용함.
+	*  GPU는 렌더링 결과를 후면 버퍼(back buffer)에 그리는데, 
+	   이때 '스왑 체인'을 통해 전면 버퍼와 후면 버퍼를 교체(swap)해서 실제 모니터에 출력함.
+
+	  → 이 과정을 더블 버퍼링이라고 부름.
+	*/
 };
 
