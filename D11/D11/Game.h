@@ -20,8 +20,8 @@ private:
 
 private:
 	// DX
-	ComPtr<ID3D11Device*> _device; // GPU에 리소스를 생성하는 객체.
-	ComPtr<ID3D11DeviceContext*> _deviceContext; // 렌더링 파이프라인에 이미 만들어진 리소스를 연결하고 그리기 명령을 내리는 객체.
+	ComPtr<ID3D11Device> _device; // GPU에 리소스를 생성하는 객체.
+	ComPtr<ID3D11DeviceContext> _deviceContext; // 렌더링 파이프라인에 이미 만들어진 리소스를 연결하고 그리기 명령을 내리는 객체.
 	/* 메모리 관리 방법
 	* 1. new와 delete로 관리하는 것이 아님
 	* 2. 수동 관리
