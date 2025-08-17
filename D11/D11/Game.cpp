@@ -66,5 +66,6 @@ void Game::CreateDeviceAndSwapChain()
 	);
 
 	// 3. 초기화 여부. 실패 시 크러쉬
-	assert(SUCCEEDED(hr));
+	//assert(SUCCEEDED(hr));
+	CHECK(hr);
 }

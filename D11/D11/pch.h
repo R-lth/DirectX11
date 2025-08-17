@@ -36,3 +36,6 @@ using namespace Microsoft::WRL;
 #else
 #pragma comment(lib, "DirectXTex\\DirectXTex.lib")
 #endif
+
+// HRESULT 결과가 성공인지 확인하고, 실패하면 디버그 시점에서 프로그램을 멈춰주는 안전 장치 매크로
+#define CHECK(p) assert(SUCCEEDED(p));
