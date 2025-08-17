@@ -22,10 +22,13 @@ void Game::Init(HWND hwnd)
 	CreateRenderTargetView();   // 그림 대상 지정
 	SetViewport();				// 화면에 맞는 그리기 영역 설정
 
-	// 기하 데이터 준비 → 셰이더 준비
-	CreateGeometry();			// 정점(Geometry) 데이터를 준비하고, 이를 GPU용 버퍼로 전환
-	CreateVS();					// 정점 셰이더(Vertex Shader) 로드 및 생성
-	CreatePS();					// 픽셀 셰이더(Pixel Shader) 로드 및 생성
+	// 기하 데이터 및 셰이더 파이프라인 초기화
+	// 1) 정점 데이터(Vertex Buffer) 준비
+	CreateGeometry();       // 정점 데이터 생성 → GPU용 버퍼로 업로드
+	// 2) 셰이더 준비
+	CreateVS();             // 정점 셰이더 로드 및 생성
+	CreateInputLayout();    // 정점 데이터의 메모리 구조
+	CreatePS();             // 픽셀 셰이더 로드 및 생성
 }
 
 void Game::Update()
