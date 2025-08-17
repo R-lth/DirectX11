@@ -18,6 +18,7 @@ private:
 private:
 	void CreateDeviceAndSwapChain(); 
 	void CreateRenderTargetView();
+	void SetViewport();
 
 private:
 	// 윈도우 핸들(포인터). 어떤 윈도우(창)를 가리키는 식별자 같은 역할 
