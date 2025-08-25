@@ -19,16 +19,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="98. Utils\SimpleMath.h" />
+    <ClInclude Include="98. Utils\tinyxml2.h" />
+    <ClInclude Include="98. Utils\Utils.h" />
     <ClInclude Include="99. Headers\Define.h" />
     <ClInclude Include="99. Headers\EnginePch.h" />
     <ClInclude Include="99. Headers\pch.h" />
     <ClInclude Include="99. Headers\Types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="98. Utils\SimpleMath.cpp" />
+    <ClCompile Include="98. Utils\tinyxml2.cpp" />
+    <ClCompile Include="98. Utils\Utils.cpp" />
     <ClCompile Include="99. Headers\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="98. Utils\SimpleMath.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
