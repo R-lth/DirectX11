@@ -1,4 +1,4 @@
-﻿#include "pch.h"
+﻿#include "../../99. Headers/pch.h"
 #include "Pass.h"
 
 void Pass::Draw(UINT vertexCount, UINT startVertexLocation)
