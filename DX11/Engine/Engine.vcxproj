@@ -19,6 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="00. Engine\IExecute.h" />
+    <ClInclude Include="01. Graphics\Buffer\ConstantBuffer.h" />
+    <ClInclude Include="01. Graphics\Buffer\Geometry.h" />
+    <ClInclude Include="01. Graphics\Buffer\IndexBuffer.h" />
+    <ClInclude Include="01. Graphics\Buffer\VertexBuffer.h" />
+    <ClInclude Include="01. Graphics\Buffer\VertexData.h" />
+    <ClInclude Include="02. Managers\Game.h" />
+    <ClInclude Include="02. Managers\Graphics.h" />
+    <ClInclude Include="02. Managers\InputManager.h" />
+    <ClInclude Include="02. Managers\ResourceManager.h" />
+    <ClInclude Include="02. Managers\TimeManager.h" />
     <ClInclude Include="98. Utils\SimpleMath.h" />
     <ClInclude Include="98. Utils\tinyxml2.h" />
     <ClInclude Include="98. Utils\Utils.h" />
@@ -28,6 +39,17 @@
     <ClInclude Include="99. Headers\Types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="00. Engine\IExecute.cpp" />
+    <ClCompile Include="01. Graphics\Buffer\ConstantBuffer.cpp" />
+    <ClCompile Include="01. Graphics\Buffer\Geometry.cpp" />
+    <ClCompile Include="01. Graphics\Buffer\IndexBuffer.cpp" />
+    <ClCompile Include="01. Graphics\Buffer\VertexBuffer.cpp" />
+    <ClCompile Include="01. Graphics\Buffer\VertexData.cpp" />
+    <ClCompile Include="02. Managers\Game.cpp" />
+    <ClCompile Include="02. Managers\Graphics.cpp" />
+    <ClCompile Include="02. Managers\InputManager.cpp" />
+    <ClCompile Include="02. Managers\ResourceManager.cpp" />
+    <ClCompile Include="02. Managers\TimeManager.cpp" />
     <ClCompile Include="98. Utils\SimpleMath.cpp" />
     <ClCompile Include="98. Utils\tinyxml2.cpp" />
     <ClCompile Include="98. Utils\Utils.cpp" />
