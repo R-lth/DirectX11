@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #define DECLARE_SINGLE(classname)			\
 private:									\

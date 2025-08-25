@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Graphics.h"
 
 void Graphics::Init(HWND hwnd)

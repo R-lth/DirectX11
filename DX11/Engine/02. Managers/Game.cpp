@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Game.h"
 #include "IExecute.h"
 
@@ -7,10 +7,10 @@ WPARAM Game::Run(GameDesc& desc)
 	_desc = desc;
 	assert(_desc.app != nullptr);
 
-	// 1) À©µµ¿ì Ã¢ Á¤º¸ µî·Ï
+	// 1) ìœˆë„ìš° ì°½ ì •ë³´ ë“±ë¡
 	MyRegisterClass();
 
-	// 2) À©µµ¿ì Ã¢ »ı¼º
+	// 2) ìœˆë„ìš° ì°½ ìƒì„±
 	if (!InitInstance(SW_SHOWNORMAL))
 		return FALSE;
 		
