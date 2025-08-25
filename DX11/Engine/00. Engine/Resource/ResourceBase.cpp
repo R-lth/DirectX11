@@ -1,4 +1,4 @@
-﻿#include "../../99. Headers/pch.h"
+﻿#include "pch.h"
 #include "ResourceBase.h"
 
 ResourceBase::ResourceBase(ResourceType type)
