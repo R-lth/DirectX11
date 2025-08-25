@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "ResourceBase.h"
+#include "../00. Engine/Resource/ResourceBase.h"
 
 class Shader;
 class Texture;

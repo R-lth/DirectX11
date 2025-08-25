@@ -78,6 +78,12 @@
     <ClInclude Include="01. Graphics\Shader\Technique.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="00. Engine\Resource\ResourceBase.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="00. Engine\Resource\Texture.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="99. Headers\pch.cpp">
@@ -132,6 +138,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="01. Graphics\Shader\Technique.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="00. Engine\Resource\ResourceBase.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="00. Engine\Resource\Texture.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

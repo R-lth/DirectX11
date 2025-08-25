@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="00. Engine\IExecute.h" />
+    <ClInclude Include="00. Engine\Resource\ResourceBase.h" />
+    <ClInclude Include="00. Engine\Resource\Texture.h" />
     <ClInclude Include="01. Graphics\Buffer\ConstantBuffer.h" />
     <ClInclude Include="01. Graphics\Buffer\Geometry.h" />
     <ClInclude Include="01. Graphics\Buffer\IndexBuffer.h" />
@@ -43,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="00. Engine\IExecute.cpp" />
+    <ClCompile Include="00. Engine\Resource\ResourceBase.cpp" />
+    <ClCompile Include="00. Engine\Resource\Texture.cpp" />
     <ClCompile Include="01. Graphics\Buffer\ConstantBuffer.cpp" />
     <ClCompile Include="01. Graphics\Buffer\Geometry.cpp" />
     <ClCompile Include="01. Graphics\Buffer\IndexBuffer.cpp" />

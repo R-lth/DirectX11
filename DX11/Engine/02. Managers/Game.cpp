@@ -1,6 +1,6 @@
-﻿#include "pch.h"
-#include "Game.h"
-#include "IExecute.h"
+﻿#include "../99. Headers/pch.h"
+#include "../02. Managers/Game.h"
+#include "../00. Engine/IExecute.h"
 
 WPARAM Game::Run(GameDesc& desc)
 {

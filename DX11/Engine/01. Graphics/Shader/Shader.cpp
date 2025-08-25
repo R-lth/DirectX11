@@ -1,6 +1,6 @@
-﻿#include "pch.h"
-#include "Shader.h"
-#include "Utils.h"
+﻿#include "../../99. Headers/pch.h"
+#include "../../01. Graphics/Shader/Shader.h"
+#include "../../98. Utils/Utils.h"
 
 Shader::Shader(wstring file) : _file(L"..\\Shaders\\" + file)
 {
