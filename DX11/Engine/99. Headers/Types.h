@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <windows.h>
 #include "DirectXMath.h"
-#include "SimpleMath.h"
+#include "../98. Utils/SimpleMath.h"
 
 using int8 = __int8;
 using int16 = __int16;

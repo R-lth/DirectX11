@@ -48,11 +48,11 @@ using namespace Microsoft::WRL;
 #endif
 
 // Managers
-#include "Game.h"
-#include "Graphics.h"
-#include "InputManager.h"
-#include "TimeManager.h"
-#include "ResourceManager.h"
+#include "../02. Managers/Game.h"
+#include "../02. Managers/Graphics.h"
+#include "../02. Managers/InputManager.h"
+#include "../02. Managers/TimeManager.h"
+#include "../02. Managers/ResourceManager.h"
 
 #define CHECK(p)	assert(SUCCEEDED(p))
 #define GAME		GET_SINGLE(Game)		
@@ -65,14 +65,9 @@ using namespace Microsoft::WRL;
 #define RESOURCES	GET_SINGLE(ResourceManager)
 
 // Engine
-#include "VertexData.h"
-#include "VertexBuffer.h"
-#include "IndexBuffer.h"
-#include "ConstantBuffer.h"
-#include "Shader.h"
-#include "IExecute.h"
-
-//#include "GameObject.h"
-//#include "Transform.h"
-//#include "Texture.h"
-//#include "Mesh.h"
+#include "../01. Graphics/Buffer/VertexData.h"
+#include "../01. Graphics/Buffer/VertexBuffer.h"
+#include "../01. Graphics/Buffer/IndexBuffer.h"
+#include "../01. Graphics/Buffer/ConstantBuffer.h"
+#include "../01. Graphics/Shader/Shader.h"
+#include "../00. Engine/IExecute.h"
