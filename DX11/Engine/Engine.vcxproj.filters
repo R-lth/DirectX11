@@ -18,6 +18,15 @@
     <ClInclude Include="99. Headers\pch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="99. Headers\Define.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="99. Headers\Types.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="99. Headers\EnginePch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="99. Headers\pch.cpp">

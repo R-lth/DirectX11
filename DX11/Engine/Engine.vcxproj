@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="99. Headers\Define.h" />
+    <ClInclude Include="99. Headers\EnginePch.h" />
     <ClInclude Include="99. Headers\pch.h" />
+    <ClInclude Include="99. Headers\Types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="99. Headers\pch.cpp">
