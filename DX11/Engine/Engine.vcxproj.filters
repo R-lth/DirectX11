@@ -69,6 +69,15 @@
     <ClInclude Include="01. Graphics\Buffer\VertexData.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="01. Graphics\Shader\Pass.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="01. Graphics\Shader\Shader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="01. Graphics\Shader\Technique.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="99. Headers\pch.cpp">
@@ -114,6 +123,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="01. Graphics\Buffer\VertexData.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="01. Graphics\Shader\Pass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="01. Graphics\Shader\Shader.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="01. Graphics\Shader\Technique.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

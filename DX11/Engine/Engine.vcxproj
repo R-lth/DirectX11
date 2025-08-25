@@ -25,6 +25,9 @@
     <ClInclude Include="01. Graphics\Buffer\IndexBuffer.h" />
     <ClInclude Include="01. Graphics\Buffer\VertexBuffer.h" />
     <ClInclude Include="01. Graphics\Buffer\VertexData.h" />
+    <ClInclude Include="01. Graphics\Shader\Pass.h" />
+    <ClInclude Include="01. Graphics\Shader\Shader.h" />
+    <ClInclude Include="01. Graphics\Shader\Technique.h" />
     <ClInclude Include="02. Managers\Game.h" />
     <ClInclude Include="02. Managers\Graphics.h" />
     <ClInclude Include="02. Managers\InputManager.h" />
@@ -45,6 +48,9 @@
     <ClCompile Include="01. Graphics\Buffer\IndexBuffer.cpp" />
     <ClCompile Include="01. Graphics\Buffer\VertexBuffer.cpp" />
     <ClCompile Include="01. Graphics\Buffer\VertexData.cpp" />
+    <ClCompile Include="01. Graphics\Shader\Pass.cpp" />
+    <ClCompile Include="01. Graphics\Shader\Shader.cpp" />
+    <ClCompile Include="01. Graphics\Shader\Technique.cpp" />
     <ClCompile Include="02. Managers\Game.cpp" />
     <ClCompile Include="02. Managers\Graphics.cpp" />
     <ClCompile Include="02. Managers\InputManager.cpp" />
