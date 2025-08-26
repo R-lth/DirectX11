@@ -187,8 +187,8 @@
       <AdditionalLibraryDirectories>$(SolutionDir)Libraries\Lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
-      <Command>xcopy /Y "$(SolutionDir)Engine\*.h" "$(SolutionDir)Libraries\Include\Engine"
-xcopy /Y "$(SolutionDir)Engine\*.inl" "$(SolutionDir)Libraries\Include\Engine"</Command>
+      <Command>xcopy /Y /S /I "$(SolutionDir)Engine\*.h" "$(SolutionDir)Libraries\Include\Engine"
+xcopy /Y /S /I "$(SolutionDir)Engine\*.inl" "$(SolutionDir)Libraries\Include\Engine"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -214,8 +214,8 @@ xcopy /Y "$(SolutionDir)Engine\*.inl" "$(SolutionDir)Libraries\Include\Engine"</
       <AdditionalLibraryDirectories>$(SolutionDir)Libraries\Lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreBuildEvent>
-      <Command>xcopy /Y "$(SolutionDir)Engine\*.h" "$(SolutionDir)Libraries\Include\Engine"
-xcopy /Y "$(SolutionDir)Engine\*.inl" "$(SolutionDir)Libraries\Include\Engine"</Command>
+      <Command>xcopy /Y /S /I "$(SolutionDir)Engine\*.h" "$(SolutionDir)Libraries\Include\Engine"
+xcopy /Y /S /I "$(SolutionDir)Engine\*.inl" "$(SolutionDir)Libraries\Include\Engine"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
